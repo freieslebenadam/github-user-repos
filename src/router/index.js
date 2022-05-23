@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import RepoDetailView from "../views/RepoDetailView.vue";
 
 const routes = [
   {
@@ -7,6 +8,12 @@ const routes = [
     name: "home",
     component: HomeView,
   },
+  {
+    path: "/repo/:id",
+    name: "repo",
+    component: RepoDetailView,
+  },
+  // TODO: NotFoundPage
 ];
 
 const router = createRouter({

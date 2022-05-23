@@ -3,16 +3,18 @@
     <div
       class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
     >
-      <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
-        {{ nameWithoutDashes }}
-      </h3>
-      <h4 class="fs-6 fw-semibold font-mono text-primary">
-        {{ repo.owner.login }}
-      </h4>
-      <p class="text-gray-500 fs-7 fw-medium flex-grow-1 pt-3">
-        {{ limitedDescription }}
-      </p>
-      <p class="text-gray-400 fw-medium m-0 fs-6">Updated {{ updatedAgo }}</p>
+      <router-link :to="{ name: 'repo', params: { id: this.repo.id } }">
+        <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
+          {{ nameWithoutDashes }}
+        </h3>
+        <h4 class="fs-6 fw-semibold font-mono text-primary">
+          {{ repo.owner.login }}
+        </h4>
+        <p class="text-gray-500 fs-7 fw-medium flex-grow-1 pt-3">
+          {{ limitedDescription }}
+        </p>
+        <p class="text-gray-400 fw-medium m-0 fs-6">Updated {{ updatedAgo }}</p>
+      </router-link>
     </div>
   </li>
 </template>
