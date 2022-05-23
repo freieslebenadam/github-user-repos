@@ -5,6 +5,10 @@
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
 
+$all-colors: map-merge-multiple(
+  $primary-steps, $gray-steps
+);
+
 $utilities: map-merge(
   $utilities,
   (
@@ -14,7 +18,7 @@ $utilities: map-merge(
         values: map-merge(
           map-get(map-get($utilities, "color"), "values"),
           (
-            $primary-steps
+            $all-colors
           ),
         ),
       ),
