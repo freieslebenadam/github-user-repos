@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap');
+
+$font-family-base: "Poppins";
+
+$primary-steps: (
+  "primary-50": #eef2ff,
+  "primary-100": #e0e7ff,
+  "primary-200": #c7d2fe,
+  "primary-300": #a5b4fc,
+  "primary-400": #818cf8,
+  "primary-500": #6366f1,
+  "primary-600": #4f46e5,
+  "primary-700": #4338ca,
+  "primary-800": #3730a3,
+  "primary-900": #312e81,
+);
+
+$primary: map-get($primary-steps, "primary-500");

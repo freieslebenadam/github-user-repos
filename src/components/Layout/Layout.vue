@@ -1,11 +1,9 @@
 <template>
-  <div class="layout bg-light text-dark">
-    <Header />
+  <Header />
 
-    <main>
-      <slot />
-    </main>
-  </div>
+  <main>
+    <slot />
+  </main>
 </template>
 
 <script>
@@ -16,9 +14,3 @@ export default {
   components: { Header },
 };
 </script>
-
-<style lang="scss">
-.layout {
-  min-height: 100vh;
-}
-</style>
