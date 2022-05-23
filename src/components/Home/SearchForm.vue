@@ -2,7 +2,7 @@
   <section class="mt-4">
     <div class="container">
       <form
-        @submit.prevent
+        @submit.prevent="fetchRepos"
         class="p-2 bg-white rounded-1 shadow d-flex flex-column flex-sm-row align-items-center"
       >
         <label
@@ -15,16 +15,17 @@
           <input
             id="searchbar"
             type="text"
-            class="border-0 shadow-none px-3"
+            class="border-0 shadow-none p-3 w-100 text-dark fw-medium"
             placeholder="Search GitHub username..."
             spellcheck="false"
             v-model="searchText"
+            autocomplete="off"
           />
         </label>
         <button
-          class="btn btn-primary text-primary-50 fw-medium shadow-none py-3 px-5"
+          class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 px-5"
         >
-          Find repos {{ searchText }}
+          Find repos
         </button>
       </form>
     </div>
@@ -38,6 +39,15 @@ export default {
     return {
       searchText: "",
     };
+  },
+  methods: {
+    fetchRepos() {
+      this.$store.dispatch("fetchRepos", {
+        username: this.searchText,
+      });
+
+      console.log(this.$store.repos);
+    },
   },
 };
 </script>
