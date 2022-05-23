@@ -1,6 +1,6 @@
 <template>
   <li class="col-md-6 col-lg-4 col-xl-3 p-3">
-    <router-link :to="{ nameadamfre: 'repo', params: { id: this.repo.id } }">
+    <router-link :to="{ name: 'repo', params: { id: this.repo.id } }">
       <div
         class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
       >
