@@ -24,13 +24,14 @@ export default createStore({
       commit("setLoading", true);
       commit("setError", null);
 
+      console.log({ username });
+
       try {
-        const { data } = axios.get(
+        const { data } = await axios.get(
           `https://api.github.com/users/${username}/repos`
         );
 
         commit("setRepos", data);
-        commit("setLoading", false);
       } catch (error) {
         switch (error.response.status) {
           case 404:
@@ -52,6 +53,8 @@ export default createStore({
             commit("setError", "Something went wrong");
             break;
         }
+      } finally {
+        commit("setLoading", false);
       }
     },
   },

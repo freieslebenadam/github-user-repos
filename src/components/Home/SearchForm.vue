@@ -24,8 +24,9 @@
         </label>
         <button
           class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 px-5"
+          :disabled="loading"
         >
-          Find repos
+          {{ !loading ? "Find repos" : "Finding..." }}
         </button>
       </form>
     </div>
@@ -45,8 +46,11 @@ export default {
       this.$store.dispatch("fetchRepos", {
         username: this.searchText,
       });
-
-      console.log(this.$store.repos);
+    },
+  },
+  computed: {
+    loading() {
+      return this.$store.state.loading;
     },
   },
 };
