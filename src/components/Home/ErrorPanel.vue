@@ -1,6 +1,10 @@
 <template>
-  <div class="alert alert-danger">
-    {{ errorMessage }}
+  <div class="text-center my-5">
+    <div class="container">
+      <div class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+    </div>
   </div>
 </template>
 
