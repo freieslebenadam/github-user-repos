@@ -1,9 +1,9 @@
 <template>
   <li class="col-md-6 col-lg-4 col-xl-3 p-3">
-    <div class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4">
-      <h3
-        class="fs-4 fw-semibold text-gray-600 text-capitalize overflow-hidden"
-      >
+    <div
+      class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
+    >
+      <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
         {{ nameWithoutDashes }}
       </h3>
       <h4 class="fs-6 fw-semibold font-mono text-primary">
@@ -27,11 +27,15 @@ export default {
       return ta.ago(this.repo.updated_at);
     },
     nameWithoutDashes() {
-      return this.repo.name.replace("-", " ");
+      return this.repo.name.replace(/-/g, " ");
     },
     limitedDescription() {
       if (this.repo.description) {
-        return this.repo.description.substring(0, 50);
+        if (this.repo.description.length > 50) {
+          return `${this.repo.description.substring(0, 100)}...`;
+        } else {
+          return this.repo.description;
+        }
       } else {
         return "No description...";
       }
@@ -45,12 +49,23 @@ li {
   list-style: none;
 
   .repo {
+    position: relative;
     min-height: 16rem;
     transition: 120ms ease;
     cursor: pointer;
 
     &:hover {
       transform: scale(1.02);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2rem;
+      height: 4rem;
+      background: linear-gradient(to left, white, white, transparent);
     }
   }
 }

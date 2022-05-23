@@ -8,6 +8,11 @@
 @import "mixins";
 @import "resets";
 
+*::selection {
+  background-color: $primary;
+  color: white;
+}
+
 body {
   background-color: $light;
   color: $dark;
