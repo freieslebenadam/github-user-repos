@@ -7,3 +7,10 @@ a {
     color: inherit;
   }
 }
+
+input, button {
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

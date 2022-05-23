@@ -1,11 +1,12 @@
 <template>
-  <section>
-    <div class="container">HOME</div>
-  </section>
+  <SearchForm />
 </template>
 
 <script>
+import SearchForm from "./SearchForm.vue";
+
 export default {
   name: "Home",
+  components: { SearchForm },
 };
 </script>
