@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    repos: [],
+    repos: null,
     loading: false,
     error: null,
   },

@@ -1,5 +1,5 @@
 <template>
-  <li class="col-sm-6 col-md-4 col-lg-3 p-3">
+  <li class="col-md-6 col-lg-3 p-3">
     <div class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4">
       <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
         {{ nameWithoutDashes }}
@@ -8,7 +8,7 @@
         {{ repo.owner.login }}
       </h4>
       <p class="text-gray-500 fs-7 fw-medium flex-grow-1 pt-3">
-        {{ repo.description ? repo.description : "No description" }}
+        {{ limitedDescription }}
       </p>
       <p class="text-gray-400 fw-medium m-0 fs-6">Updated {{ updatedAgo }}</p>
     </div>
@@ -26,6 +26,13 @@ export default {
     },
     nameWithoutDashes() {
       return this.repo.name.replace("-", " ");
+    },
+    limitedDescription() {
+      if (this.repo.description) {
+        return this.repo.description.substring(0, 50);
+      } else {
+        return "No description...";
+      }
     },
   },
 };
