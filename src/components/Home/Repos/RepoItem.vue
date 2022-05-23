@@ -1,9 +1,9 @@
 <template>
   <li class="col-md-6 col-lg-4 col-xl-3 p-3">
-    <div
-      class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
-    >
-      <router-link :to="{ name: 'repo', params: { id: this.repo.id } }">
+    <router-link :to="{ nameadamfre: 'repo', params: { id: this.repo.id } }">
+      <div
+        class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
+      >
         <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
           {{ nameWithoutDashes }}
         </h3>
@@ -14,8 +14,8 @@
           {{ limitedDescription }}
         </p>
         <p class="text-gray-400 fw-medium m-0 fs-6">Updated {{ updatedAgo }}</p>
-      </router-link>
-    </div>
+      </div>
+    </router-link>
   </li>
 </template>
 
