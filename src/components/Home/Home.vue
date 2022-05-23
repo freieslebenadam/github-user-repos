@@ -5,6 +5,13 @@
     <LoadingPanel v-if="loading" />
     <ErrorPanel v-else-if="error" />
     <ReposList v-else-if="repos && repos.length" :repos="repos" />
+    <div v-else class="container">
+      <p
+        class="text-center fs-4 text-primary-800 bg-white rounded shadow p-5 mt-5"
+      >
+        This user doesn't have any public repositories...
+      </p>
+    </div>
   </FadeTransition>
 </template>
 

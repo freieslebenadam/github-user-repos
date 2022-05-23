@@ -1,7 +1,12 @@
 <template>
   <div class="text-center my-5">
     <div class="container">
-      <div class="alert alert-danger">
+      <div
+        class="error-message bg-white rounded-1 shadow py-4 text-danger fs-5 d-flex align-items-center justify-content-center fw-medium"
+      >
+        <span class="me-3 fs-4 text-danger">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+        </span>
         {{ errorMessage }}
       </div>
     </div>
@@ -18,3 +23,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.error-message {
+  background: linear-gradient(to right, rgba(255, 0, 0, 0.204), transparent);
+  border: 1px solid rgb(255, 134, 134);
+}
+</style>
