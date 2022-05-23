@@ -33,3 +33,8 @@ body {
 .fs-7 {
   font-size: 0.8em;
 }
+
+.error-message {
+  background: linear-gradient(to right, $danger, transparent, transparent);
+  border: 1px solid $danger;
+}

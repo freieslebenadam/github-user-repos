@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// TODO: Fix responsivity
 export default {
   name: "ErrorPanel",
   computed: {
@@ -23,10 +24,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.error-message {
-  background: linear-gradient(to right, rgba(255, 0, 0, 0.204), transparent);
-  border: 1px solid rgb(255, 134, 134);
-}
-</style>

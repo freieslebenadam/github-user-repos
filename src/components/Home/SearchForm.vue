@@ -34,6 +34,8 @@
 </template>
 
 <script>
+// TODO: Form input validation
+// TODO: Fix Form elements responsivity
 export default {
   name: "SearchForm",
   data() {
