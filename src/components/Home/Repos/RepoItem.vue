@@ -1,7 +1,9 @@
 <template>
-  <li class="col-md-6 col-lg-3 p-3">
+  <li class="col-md-6 col-lg-4 col-xl-3 p-3">
     <div class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4">
-      <h3 class="fs-4 fw-semibold text-gray-600 text-capitalize">
+      <h3
+        class="fs-4 fw-semibold text-gray-600 text-capitalize overflow-hidden"
+      >
         {{ nameWithoutDashes }}
       </h3>
       <h4 class="fs-6 fw-semibold font-mono text-primary">
