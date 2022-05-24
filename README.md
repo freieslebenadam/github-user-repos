@@ -1,6 +1,20 @@
-# github-user-repos
+# GitHub User Repositories Searcher
 
-## Project setup
+This is a Vue.js 3 application for finding public repositories of GitHub users.
+
+## Stack
+
+- Vue.js 3
+- Vuex 4
+- Vue-Router
+- Axios
+- Bootstrap 5
+- Bootstrap Icons
+- SCSS
+- time-ago library
+
+
+## Installation
 ```
 npm install
 ```
