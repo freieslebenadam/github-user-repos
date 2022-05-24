@@ -3,15 +3,14 @@
     <div class="container">
       <form
         @submit.prevent="fetchRepos"
-        class="p-2 bg-white rounded-1 shadow d-flex flex-column flex-sm-row align-items-center"
+        class="p-2 bg-white rounded-1 shadow row"
       >
-        <label
-          for="searchbar"
-          class="ps-3 pe-1 flex-grow-1 d-flex align-items-center"
-        >
-          <span class="fs-4 text-primary">
-            <i class="bi bi-search"></i>
-          </span>
+        <div class="col-sm-9 col-md-10 d-flex align-items-center">
+          <label for="searchbar" class="ps-3 pe-1">
+            <span class="fs-4 text-primary">
+              <i class="bi bi-search"></i>
+            </span>
+          </label>
           <input
             id="searchbar"
             type="text"
@@ -21,9 +20,9 @@
             v-model="searchText"
             autocomplete="off"
           />
-        </label>
+        </div>
         <button
-          class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 px-5"
+          class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 col-sm"
           :disabled="loading"
         >
           {{ !loading ? "Find repos" : "Finding..." }}
