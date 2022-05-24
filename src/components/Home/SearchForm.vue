@@ -52,12 +52,12 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log(this.formValidation);
       this.validateForm();
 
       if (!this.formValidation.error) {
         this.fetchRepos();
         this.searchText = this.searchText.trim();
+        this.formValidation.status = "needs-validated";
       }
     },
     fetchRepos() {
