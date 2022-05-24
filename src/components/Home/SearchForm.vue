@@ -2,8 +2,11 @@
   <section class="mt-4">
     <div class="container">
       <form
-        @submit.prevent="fetchRepos"
+        ref="searchForm"
+        @submit.prevent="handleSubmit"
         class="p-2 bg-white rounded-1 shadow row ms-0 me-0"
+        :class="formValidation.status"
+        novalidate
       >
         <div class="col-sm-9 col-md-10 d-flex align-items-center">
           <label for="searchbar" class="ps-3 pe-1">
@@ -14,11 +17,14 @@
           <input
             id="searchbar"
             type="text"
-            class="border-0 shadow-none p-3 w-100 text-dark fw-medium"
+            name="searchbar"
+            class="border-0 shadow-none p-3 w-100 text-dark fw-medium form-control"
             placeholder="Search GitHub username..."
             spellcheck="false"
             v-model="searchText"
             autocomplete="off"
+            pattern="\S+"
+            required
           />
         </div>
         <button
@@ -33,19 +39,42 @@
 </template>
 
 <script>
-// TODO: Form input validation
 export default {
   name: "SearchForm",
   data() {
     return {
       searchText: "",
+      formValidation: {
+        error: false,
+        status: "needs-validation",
+      },
     };
   },
   methods: {
+    handleSubmit() {
+      console.log(this.formValidation);
+      this.validateForm();
+
+      if (!this.formValidation.error) {
+        this.fetchRepos();
+        this.searchText = this.searchText.trim();
+      }
+    },
     fetchRepos() {
       this.$store.dispatch("fetchRepos", {
-        username: this.searchText,
+        username: this.searchText.trim(),
       });
+    },
+    validateForm() {
+      this.formValidation.status = "needs-validation";
+
+      if (!this.searchText.trim().length) {
+        this.formValidation.error = true;
+      } else {
+        this.formValidation.error = false;
+      }
+
+      this.formValidation.status = "was-validated";
     },
   },
   computed: {
