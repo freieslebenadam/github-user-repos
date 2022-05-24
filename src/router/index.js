@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import RepoDetailView from "../views/RepoDetailView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
 
 const routes = [
   {
@@ -8,12 +8,12 @@ const routes = [
     name: "home",
     component: HomeView,
   },
+  // 404
   {
-    path: "/repo/:id",
-    name: "repo",
-    component: RepoDetailView,
+    path: "/:catchAll(.*)",
+    name: "notFound",
+    component: NotFoundView,
   },
-  // TODO: NotFoundPage
 ];
 
 const router = createRouter({

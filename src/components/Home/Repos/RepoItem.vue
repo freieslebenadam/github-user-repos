@@ -1,6 +1,6 @@
 <template>
   <li class="col-md-6 col-lg-4 col-xl-3 p-3">
-    <router-link :to="{ name: 'repo', params: { id: this.repo.id } }">
+    <a :href="repo.html_url" target="_blank">
       <div
         class="repo p-2 bg-white rounded-3 shadow d-flex flex-column p-4 overflow-hidden"
       >
@@ -25,7 +25,7 @@
         </p>
         <p class="text-gray-400 fw-medium m-0 fs-6">Updated {{ updatedAgo }}</p>
       </div>
-    </router-link>
+    </a>
   </li>
 </template>
 
@@ -56,8 +56,6 @@ export default {
     },
     language() {
       let language = languages.find((lang) => lang.name === this.repo.language);
-
-      console.log(language);
 
       if (language) {
         return language;
