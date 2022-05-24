@@ -3,7 +3,7 @@
     <div class="container">
       <form
         @submit.prevent="fetchRepos"
-        class="p-2 bg-white rounded-1 shadow row"
+        class="p-2 bg-white rounded-1 shadow row ms-0 me-0"
       >
         <div class="col-sm-9 col-md-10 d-flex align-items-center">
           <label for="searchbar" class="ps-3 pe-1">
@@ -22,7 +22,7 @@
           />
         </div>
         <button
-          class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 col-sm"
+          class="btn btn-primary text-primary-50 fw-bold shadow-none py-3 col-sm mt-2 mt-sm-0"
           :disabled="loading"
         >
           {{ !loading ? "Find repos" : "Finding..." }}

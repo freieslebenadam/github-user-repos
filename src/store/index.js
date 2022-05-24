@@ -24,8 +24,6 @@ export default createStore({
       commit("setLoading", true);
       commit("setError", null);
 
-      console.log({ username });
-
       try {
         const { data } = await axios.get(
           `https://api.github.com/users/${username}/repos`
