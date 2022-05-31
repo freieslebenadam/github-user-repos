@@ -59,14 +59,12 @@ export default {
       this.validateForm();
 
       if (!this.formValidation.error) {
-        this.fetchRepos();
+        this.$store.dispatch("getRepos", {
+          username: this.searchText.trim(),
+        });
+
         this.formValidation.status = STATUSES.NOT_VALIDATED;
       }
-    },
-    fetchRepos() {
-      this.$store.dispatch("getRepos", {
-        username: this.searchText.trim(),
-      });
     },
     validateForm() {
       this.formValidation.status = STATUSES.NOT_VALIDATED;
