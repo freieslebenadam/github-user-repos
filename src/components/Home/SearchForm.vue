@@ -39,6 +39,11 @@
 </template>
 
 <script>
+const STATUSES = {
+  NOT_VALIDATED: "needs-validation",
+  VALIDATED: "was-validated",
+};
+
 export default {
   name: "SearchForm",
   data() {
@@ -46,7 +51,7 @@ export default {
       searchText: "",
       formValidation: {
         error: false,
-        status: "needs-validation",
+        status: STATUSES.NOT_VALIDATED,
       },
     };
   },
@@ -57,7 +62,7 @@ export default {
       if (!this.formValidation.error) {
         this.fetchRepos();
         this.searchText = this.searchText.trim();
-        this.formValidation.status = "needs-validated";
+        this.formValidation.status = STATUSES.NOT_VALIDATED;
       }
     },
     fetchRepos() {
@@ -66,7 +71,7 @@ export default {
       });
     },
     validateForm() {
-      this.formValidation.status = "needs-validation";
+      this.formValidation.status = STATUSES.NOT_VALIDATED;
 
       if (!this.searchText.trim().length) {
         this.formValidation.error = true;
@@ -74,7 +79,7 @@ export default {
         this.formValidation.error = false;
       }
 
-      this.formValidation.status = "was-validated";
+      this.formValidation.status = STATUSES.VALIDATED;
     },
   },
   computed: {
