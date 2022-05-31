@@ -64,7 +64,7 @@ export default {
       }
     },
     fetchRepos() {
-      this.$store.dispatch("fetchRepos", {
+      this.$store.dispatch("getRepos", {
         username: this.searchText.trim(),
       });
     },

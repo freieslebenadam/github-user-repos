@@ -5,24 +5,23 @@ export default createStore({
   state: {
     repos: null,
     loading: false,
-    error: null,
+    error: "",
   },
-  getters: {},
   mutations: {
-    setRepos(state, payload) {
-      state.repos = payload;
+    setRepos(state, repos) {
+      state.repos = repos;
     },
-    setLoading(state, payload) {
-      state.loading = payload;
+    setLoading(state, loading) {
+      state.loading = loading;
     },
-    setError(state, payload) {
-      state.error = payload;
+    setError(state, error) {
+      state.error = error;
     },
   },
   actions: {
-    fetchRepos: async ({ commit }, { username }) => {
+    getRepos: async ({ commit }, { username }) => {
       commit("setLoading", true);
-      commit("setError", null);
+      commit("setError", "");
 
       try {
         const { data } = await axios.get(
@@ -56,5 +55,4 @@ export default createStore({
       }
     },
   },
-  modules: {},
 });
