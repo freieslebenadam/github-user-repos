@@ -12,12 +12,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   name: "ErrorPanel",
-  computed: {
-    ...mapState(["error"]),
-  },
+  props: ["error"],
 };
 </script>
