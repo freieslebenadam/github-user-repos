@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import languages from "@/lib/languages";
 const timeAgo = require("time-ago");
+import languages from "@/lib/languages";
 
 export default {
   name: "RepoItem",
