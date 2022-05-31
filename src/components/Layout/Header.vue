@@ -1,18 +1,16 @@
 <template>
   <header class="position-relative">
-    <div class="header-backdrop shadow"></div>
-    <nav class="navbar navbar-dark pt-5 pb-2">
-      <div class="container">
-        <div class="navbar-brand mx-auto mx-md-0 text-white p-0">
-          <router-link :to="{ name: 'home' }">
-            <h1 class="fs-3 fw-bolder text-primary-50">
-              <span class="me-2">
-                <i class="bi bi-github"></i>
-              </span>
-              Repofind
-            </h1>
-          </router-link>
-        </div>
+    <span class="header-backdrop shadow"></span>
+    <nav class="navbar navbar-dark pt-5 pb-2 container">
+      <div class="navbar-brand mx-auto mx-md-0 text-white p-0">
+        <router-link :to="{ name: 'home' }">
+          <h1 class="fs-3 fw-bolder text-primary-50">
+            <span class="me-2">
+              <i class="bi bi-github"></i>
+            </span>
+            Repofind
+          </h1>
+        </router-link>
       </div>
     </nav>
   </header>
