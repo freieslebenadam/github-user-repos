@@ -33,14 +33,14 @@
 
 <script>
 import languages from "@/lib/languages";
+const timeAgo = require("time-ago");
 
 export default {
   name: "RepoItem",
   props: ["repo"],
   computed: {
     updatedAgo() {
-      const ta = require("time-ago");
-      return ta.ago(this.repo.pushed_at);
+      return timeAgo.ago(this.repo.pushed_at);
     },
     nameWithoutDashes() {
       return this.repo.name.replace(/-/g, " ");
