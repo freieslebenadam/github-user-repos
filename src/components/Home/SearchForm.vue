@@ -1,7 +1,6 @@
 <template>
   <section class="mt-4 container">
     <form
-      ref="searchForm"
       @submit.prevent="handleSubmit"
       class="p-2 bg-white rounded-1 shadow row ms-0 me-0"
       :class="formValidation.status"
