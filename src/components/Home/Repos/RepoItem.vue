@@ -10,8 +10,10 @@
         <h4 class="fs-6 fw-semibold font-mono text-primary">
           {{ repo.owner.login }}
         </h4>
-        <p class="text-gray-500 fs-7 fw-medium flex-grow-1 pt-3">
-          {{ limitedDescription }}
+        <p
+          class="repo-description text-gray-500 fs-7 fw-medium flex-grow-1 pt-3"
+        >
+          {{ repo.description }}
         </p>
         <p
           v-if="repo.language"
@@ -43,17 +45,6 @@ export default {
     nameWithoutDashes() {
       return this.repo.name.replace(/-/g, " ");
     },
-    limitedDescription() {
-      if (this.repo.description) {
-        if (this.repo.description.length > 50) {
-          return `${this.repo.description.substring(0, 80)}...`;
-        } else {
-          return this.repo.description;
-        }
-      } else {
-        return "No description...";
-      }
-    },
     language() {
       let language = languages.find((lang) => lang.name === this.repo.language);
 
@@ -77,7 +68,7 @@ li {
 
   .repo {
     position: relative;
-    min-height: 18rem;
+    height: 18rem;
     transition: 120ms ease;
     cursor: pointer;
 
@@ -85,14 +76,19 @@ li {
       transform: scale(1.02);
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 2rem;
-      height: 4rem;
-      background: linear-gradient(to left, white, white, transparent);
+    &-description {
+      position: relative;
+      overflow: hidden;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1.5rem;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, white);
+      }
     }
   }
 }
