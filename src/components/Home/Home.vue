@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import FadeTransition from "@/components/Transitions/FadeTransition.vue";
 import SearchForm from "./SearchForm.vue";
 import ErrorPanel from "./ErrorPanel.vue";
@@ -25,15 +26,7 @@ export default {
     ReposList,
   },
   computed: {
-    error() {
-      return this.$store.state.error;
-    },
-    loading() {
-      return this.$store.state.loading;
-    },
-    repos() {
-      return this.$store.state.repos;
-    },
+    ...mapState(["error", "loading", "repos"]),
   },
 };
 </script>

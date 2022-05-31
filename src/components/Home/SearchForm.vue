@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 const STATUSES = {
   NOT_VALIDATED: "needs-validation",
   VALIDATED: "was-validated",
@@ -83,9 +85,7 @@ export default {
     },
   },
   computed: {
-    loading() {
-      return this.$store.state.loading;
-    },
+    ...mapState(["loading"]),
   },
 };
 </script>

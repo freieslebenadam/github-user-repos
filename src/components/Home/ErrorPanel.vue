@@ -7,19 +7,19 @@
         <span class="me-3 fs-4 text-danger d-none d-md-inline">
           <i class="bi bi-exclamation-triangle-fill"></i>
         </span>
-        {{ errorMessage }}
+        {{ error }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "ErrorPanel",
   computed: {
-    errorMessage() {
-      return this.$store.state.error;
-    },
+    ...mapState(["error"]),
   },
 };
 </script>
