@@ -19,7 +19,7 @@
           class="border-0 shadow-none p-3 w-100 text-dark fw-medium form-control"
           placeholder="Search GitHub username..."
           spellcheck="false"
-          v-model="searchText"
+          v-model.trim="searchText"
           autocomplete="off"
           pattern="\S+"
           required
@@ -60,7 +60,6 @@ export default {
 
       if (!this.formValidation.error) {
         this.fetchRepos();
-        this.searchText = this.searchText.trim();
         this.formValidation.status = STATUSES.NOT_VALIDATED;
       }
     },
