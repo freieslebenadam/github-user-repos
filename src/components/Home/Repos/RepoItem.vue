@@ -43,20 +43,24 @@ export default {
       return timeAgo.ago(this.repo.pushed_at);
     },
     nameWithoutDashes() {
-      return this.repo.name.replace(/-/g, " ");
+      return this.repo.name.replace(/(-|_)/g, " ");
     },
     language() {
+      const defaultLanguage = languages.find(
+        (lang) => lang.name === "_default"
+      );
+
       let language = languages.find((lang) => lang.name === this.repo.language);
 
-      if (language) {
-        return language;
-      } else {
-        return {
+      if (!language) {
+        language = {
           name: this.repo.language,
-          icon: languages.find((lang) => lang.name === "_default").icon,
-          color: languages.find((lang) => lang.name === "_default").color,
+          icon: defaultLanguage.icon,
+          color: defaultLanguage.color,
         };
       }
+
+      return language;
     },
   },
 };
