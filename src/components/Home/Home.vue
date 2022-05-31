@@ -2,7 +2,7 @@
   <SearchForm />
 
   <FadeTransition>
-    <LoadingPanel v-if="loading" />
+    <LoadingPanel v-if="loading" text="Loading..." />
     <ErrorPanel v-else-if="error" />
     <ReposList v-else-if="repos" :repos="repos" />
   </FadeTransition>
